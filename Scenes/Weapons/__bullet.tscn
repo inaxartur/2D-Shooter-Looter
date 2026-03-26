@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://doxdnehuxd7xy"]
+
+[ext_resource type="Texture2D" uid="uid://dfbl1vtk8kbek" path="res://Sprites/bullet.png" id="1_apoic"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7d8w3"]
+radius = 9.999999
+
+[node name="Bullet" type="Area2D" unique_id=1072816069]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1472209093]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("1_apoic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=733202784]
+rotation = 1.5707964
+scale = Vector2(0.1, 0.1)
+shape = SubResource("CapsuleShape2D_7d8w3")
+debug_color = Color(0.662697, 0.51365745, 3.85046e-07, 0.41960785)

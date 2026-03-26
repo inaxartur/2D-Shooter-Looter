@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://ohik62rksh7k"]
+
+[ext_resource type="Script" uid="uid://biwi5ebyr26ok" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://cnn1t7r0frl8t" path="res://Sprites/player-Sheet.png" id="1_v0iea"]
+[ext_resource type="PackedScene" uid="uid://063j50jpaugr" path="res://Scenes/Weapons/ppsh41/ppsh41.tscn" id="4_fkybt"]
+[ext_resource type="Script" uid="uid://dverrybln4way" path="res://Scripts/ammo_bar.gd" id="4_vgqql"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(0, 0, 27, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(0, 0, 27, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(27, 0, 27, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(54, 0, 27, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(81, 0, 27, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(108, 0, 27, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(135, 0, 27, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ek2"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(162, 0, 27, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(189, 0, 27, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gymyn"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(216, 0, 27, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(243, 0, 27, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ukyrk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvnsp")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t5aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkybt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3wgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8erm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ek2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx1dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gymyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu2lt")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 17.5
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=190026731]
+motion_mode = 1
+script = ExtResource("1_cvnsp")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=810413590]
+shape = SubResource("CircleShape2D_cvnsp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=334057914]
+texture_filter = 1
+texture_repeat = 1
+sprite_frames = SubResource("SpriteFrames_ukyrk")
+animation = &"Idle"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1609888087]
+zoom = Vector2(4, 4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=981769040]
+
+[node name="AmmoBar" type="ProgressBar" parent="CanvasLayer" unique_id=432815980]
+modulate = Color(1, 1, 1, 0.5529412)
+top_level = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -72.0
+offset_right = 268.0
+offset_bottom = -2.0
+grow_vertical = 0
+tooltip_text = "
+"
+max_value = 30.0
+step = 1.0
+value = 3.0
+show_percentage = false
+script = ExtResource("4_vgqql")
+
+[node name="Weapon" parent="." unique_id=2036369340 instance=ExtResource("4_fkybt")]
+position = Vector2(-5.684342e-14, 0.99999994)

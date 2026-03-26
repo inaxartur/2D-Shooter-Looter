@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bku6px7jwdjeb"]
+
+[ext_resource type="Script" uid="uid://dp88gr4g0swr7" path="res://Scripts/shoot_timer.gd" id="1_qbmej"]
+
+[node name="Timer" type="Timer" unique_id=1034845819]
+script = ExtResource("1_qbmej")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]

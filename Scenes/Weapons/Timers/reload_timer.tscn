@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cr1nwau1agteg"]
+
+[ext_resource type="Script" uid="uid://dsd71hvylaawa" path="res://Scripts/reload_timer.gd" id="1_n14nm"]
+
+[node name="Timer" type="Timer" unique_id=440098755]
+script = ExtResource("1_n14nm")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]
