@@ -6,6 +6,7 @@
 [node name="Map" type="Node2D" unique_id=1528279705]
 
 [node name="Player" parent="." unique_id=190026731 instance=ExtResource("1_ci6au")]
+position = Vector2(65, 0)
 
 [node name="Maptexture" type="Sprite2D" parent="." unique_id=1625643969]
 z_index = -2

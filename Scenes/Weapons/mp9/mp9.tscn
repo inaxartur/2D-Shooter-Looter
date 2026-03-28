@@ -256,7 +256,6 @@ animations = [{
 }]
 
 [node name="weapon_mp9" type="Node2D" unique_id=1373003805 node_paths=PackedStringArray("thisNode", "animator", "reloadTimer", "shootTimer", "barrelPos")]
-scale = Vector2(0.4, 0.4)
 script = ExtResource("1_efxv3")
 thisNode = NodePath(".")
 weaponName = "mp9"
@@ -274,21 +273,15 @@ metadata/_custom_type_script = "uid://shwmlvesi57o"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1456238264]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(-35, 3.3881318e-21)
+position = Vector2(-50, 0)
 sprite_frames = SubResource("SpriteFrames_3806b")
 animation = &"shoot"
 frame = 3
 frame_progress = 0.41541788
 
 [node name="barrel" type="Marker2D" parent="." unique_id=1814937519]
-position = Vector2(-67.5, -9.536743e-07)
-
-[node name="ColorRect" type="ColorRect" parent="barrel" unique_id=263762009]
-offset_left = -2.4999995
-offset_top = -2.5
+position = Vector2(-81, -1)
 
 [node name="reloadTimer" parent="." unique_id=440098755 instance=ExtResource("4_qbe11")]
 
 [node name="shootTimer" parent="." unique_id=1034845819 instance=ExtResource("5_sfeqr")]
-
-[connection signal="timeout" from="shootTimer" to="shootTimer" method="_on_timeout"]

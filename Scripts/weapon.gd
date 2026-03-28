@@ -1,6 +1,7 @@
 extends Node2D
 class_name Weapon
 
+### export
 @export var thisNode : Node2D
 @export var weaponName : String
 @export var dmg : int
@@ -13,9 +14,10 @@ class_name Weapon
 @export var shootTimer : Timer
 @export var barrelPos : Marker2D
 
+### var
 var isShooting : bool = false
 var isReloading : bool = false
-var isMagCapInBarSet : bool = false
+var isMagCapInBarSet : bool = false # Var for running only once # thing to look for better option
 var shootButtonClicked : bool = false
 
 var bulletsInMag : int
@@ -25,15 +27,13 @@ func _ready() -> void:
 	bulletsInMag = magCapacity
 	reloadTimer.wait_time = reloadTime
 	shootTimer.wait_time = shootTimerTime
-	#shootTimer.wait_time = setShootTimerTime()
 	SignalBus.reloadTimerEnded.connect(_on_reload_timer_end)
 	SignalBus.shootTimerEnded.connect(_on_shoot_timer_end)
 
 ### INPUT ###
 func _input(event: InputEvent) -> void:
-	if(!isMagCapInBarSet):
+	if(!isMagCapInBarSet): # Here since it doesnt work how it should in _ready() func 	# Good thing to look for better option
 		SignalBus.weaponMagCapacity.emit(magCapacity)
-		print("EMIT MAGCAP")
 		isMagCapInBarSet = true
 	if(event.is_action_pressed("reload")):
 		reload()
@@ -44,6 +44,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotateWeaponToMouse(event.position)
 
+### _PROCCES ####
 func _process(delta: float) -> void:
 	if(shootButtonClicked):
 		shoot()
@@ -63,8 +64,8 @@ func reload() -> void:
 		animator.play("reload")
 
 func rotateWeaponToMouse(mousePos : Vector2) -> void:
-	mousePos.x = mousePos.x - 1920 / 2
-	mousePos.y = mousePos.y - 1080 / 2
+	mousePos.x = mousePos.x - 1920 / 2 # Horizontal center of screen
+	mousePos.y = mousePos.y - 1080 / 2 # Vertical center of screen
 	thisNode.rotation = (thisNode.position.angle_to(mousePos) - PI/2)
 	if (thisNode.position.angle_to(mousePos) > 0 ):
 		animator.flip_v = false
