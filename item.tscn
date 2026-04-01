@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bmxtfojq1wmqr"]
+
+[ext_resource type="Texture2D" uid="uid://c6olw8glct1qt" path="res://Scenes/Weapons/mp9/Textures/MP9outline-Sheet-Shoot.png" id="1_tnite"]
+[ext_resource type="Script" uid="uid://c13vsrrag47u0" path="res://item.gd" id="1_ttk8k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttk8k"]
+atlas = ExtResource("1_tnite")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg5e7"]
+atlas = ExtResource("1_tnite")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys7tt"]
+atlas = ExtResource("1_tnite")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unjj8"]
+atlas = ExtResource("1_tnite")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7u88n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttk8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg5e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys7tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unjj8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=532679590]
+script = ExtResource("1_ttk8k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=857039477]
+sprite_frames = SubResource("SpriteFrames_7u88n")

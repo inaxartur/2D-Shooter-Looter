@@ -273,11 +273,12 @@ metadata/_custom_type_script = "uid://shwmlvesi57o"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1456238264]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(-50, 0)
+position = Vector2(-18, 0)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_3806b")
 animation = &"shoot"
-frame = 3
-frame_progress = 0.41541788
+frame = 4
+frame_progress = 1.0
 
 [node name="barrel" type="Marker2D" parent="." unique_id=1814937519]
 position = Vector2(-81, -1)

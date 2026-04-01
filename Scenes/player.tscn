@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://biwi5ebyr26ok" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cnn1t7r0frl8t" path="res://Sprites/player-Sheet.png" id="1_v0iea"]
-[ext_resource type="PackedScene" uid="uid://ds3f0y82pv0eq" path="res://Scenes/Weapons/mp9/mp9.tscn" id="4_fkybt"]
 [ext_resource type="Script" uid="uid://dverrybln4way" path="res://Scripts/ammo_bar.gd" id="4_vgqql"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
@@ -97,6 +96,9 @@ animations = [{
 "speed": 17.5
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6t5aa"]
+radius = 12.0
+
 [node name="Player" type="CharacterBody2D" unique_id=190026731]
 motion_mode = 1
 script = ExtResource("1_cvnsp")
@@ -134,5 +136,11 @@ value = 3.0
 show_percentage = false
 script = ExtResource("4_vgqql")
 
-[node name="weapon_mp9" parent="." unique_id=1373003805 instance=ExtResource("4_fkybt")]
-position = Vector2(0, 1)
+[node name="PickupArea" type="Area2D" parent="." unique_id=1964121416]
+
+[node name="PickupShape" type="CollisionShape2D" parent="PickupArea" unique_id=1234211245]
+shape = SubResource("CircleShape2D_6t5aa")
+debug_color = Color(0.56335425, 0.5403773, 0.4065651, 0.41960785)
+
+[connection signal="area_entered" from="PickupArea" to="." method="_on_pickup_area_area_entered"]
+[connection signal="area_exited" from="PickupArea" to="." method="_on_pickup_area_area_exited"]

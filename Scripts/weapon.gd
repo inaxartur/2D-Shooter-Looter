@@ -14,6 +14,9 @@ class_name Weapon
 @export var shootTimer : Timer
 @export var barrelPos : Marker2D
 
+var droppedItem : PackedScene = load("res://Scenes/lying_item.tscn")
+var droppedItemNode : Node2D
+
 ### var
 var isShooting : bool = false
 var isReloading : bool = false
@@ -71,6 +74,11 @@ func rotateWeaponToMouse(mousePos : Vector2) -> void:
 		animator.flip_v = false
 	else:
 		animator.flip_v = true
+
+func drop() -> void:
+	droppedItemNode = droppedItem.instantiate()
+	get_parent().get_parent().add_child(droppedItemNode)
+	droppedItemNode.global_position = get_parent().global_position
 
 func setShootTimerTime() -> float: ## UNUSED
 	print(rpm/600)
